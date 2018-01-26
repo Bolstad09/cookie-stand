@@ -1,7 +1,6 @@
 'use strict';
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-//First and Pike Location
 var firstAndPike = {
   name: 'First and Pike',
   minCustPerHour: 23,
@@ -22,9 +21,16 @@ var firstAndPike = {
       console.log(this.cookiesSoldByHour[j]);
     }
   },
+  calcTotalCookies: function() {
+    for(var k = 0; k < hours.length; k++) {
+      this.totalCookies.push(Math.round(this.avgCookiesSoldPerHour * this.randCustByHour[j]));
+      console.log(this.totalCookies[k]);
+    }
+  },
   render: function() {
     var firstandpike = document.getElementById('firstandpike');
     var fandp = document.getElementById('fandp');
+    var totalCookieOne = document.getElementById('totalCookieOne');
     this.calcRandCustByHour();
     this.calcCookiesSoldByHour();
     var h3El = document.createElement('h3');
@@ -35,10 +41,12 @@ var firstAndPike = {
       liEl.textContent = hours[k] + ': ' + this.cookiesSoldByHour[k] + ' cookies';
       console.log(liEl);
       firstandpike.appendChild(liEl);
+      totalCookieOne.appendChild(liEl);
     }
   }
 };
 firstAndPike.render();
+
 
 // ----------------------------------------------------------
 
