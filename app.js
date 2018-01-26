@@ -21,16 +21,15 @@ var firstAndPike = {
       console.log(this.cookiesSoldByHour[j]);
     }
   },
-  calcTotalCookies: function() {
-    for(var k = 0; k < hours.length; k++) {
-      this.totalCookies.push(Math.round(this.avgCookiesSoldPerHour * this.randCustByHour[j]));
-      console.log(this.totalCookies[k]);
-    }
-  },
+  // calcTotalCookies: function() {
+  //   for(var k = 0; k < hours.length; k++) {
+  //     this.totalCookies.push(Math.round(this.cookiesSoldByHour * hours.length[k]));
+  //     console.log(this.totalCookies);
+  //   }
+  // },
   render: function() {
     var firstandpike = document.getElementById('firstandpike');
     var fandp = document.getElementById('fandp');
-    var totalCookieOne = document.getElementById('totalCookieOne');
     this.calcRandCustByHour();
     this.calcCookiesSoldByHour();
     var h3El = document.createElement('h3');
@@ -41,13 +40,17 @@ var firstAndPike = {
       liEl.textContent = hours[k] + ': ' + this.cookiesSoldByHour[k] + ' cookies';
       console.log(liEl);
       firstandpike.appendChild(liEl);
-      totalCookieOne.appendChild(liEl);
     }
-  }
+  },
 };
 firstAndPike.render();
 
 
+// var totalEle = document.createElement('li');
+// totalEle.textContent = 'Total: ' 
+// fandp.appendChild(totalEle);
+// firstandpike.textContent = this.name;
+// firstandpike.appendChild(fandp);
 // ----------------------------------------------------------
 
 var SeaTacAirport = {
