@@ -22,6 +22,31 @@ body {
     width: 400px;
     text-align: center;
 }
+nav {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+  display: inline-block;
+  width: auto;
+  list-style-type: none;
+}
+
+nav li {
+    float: left;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: rgb(180, 149, 147);
+}
+
+a:hover {
+    text-decoration: underline;
+}
 #page {
     background-color: rgb(189, 105, 98);
 }

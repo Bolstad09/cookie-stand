@@ -41,6 +41,15 @@ nav li {
     float: left;
 }
 
+a:link, a:visited {
+    text-decoration: none;
+    color: rgb(180, 149, 147);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 #page {
     background-color: rgb(194, 72, 61);
 }
