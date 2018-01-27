@@ -6,13 +6,14 @@
     /* background-color: salmon; */
 }
 header {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(85, 6, 0);
 }
-.pic {
-    background-color: salmon;
+img#salmon (1).logo {
+    width: 20%;
+    display: block;
+    margin: 0 auto;
 }
-
 body {
     background-color: salmon;
     padding: 10px;
@@ -21,32 +22,12 @@ body {
     width: 400px;
     text-align: center;
 }
-h1 {
-    font-family: 'Roboto', sans-serif;
-}
-nav {
-    float: left;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-}
-
-nav ul {
-  display: inline-block;
-  width: auto;
-  list-style-type: none;
-}
-
-nav li {
-    float: left;
-}
-
 #page {
-    background-color: rgb(194, 72, 61);
+    background-color: rgb(189, 105, 98);
 }
 h2 {
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(53, 4, 0);
+    color: rgb(255, 176, 170);
 }
 h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -54,16 +35,9 @@ h3 {
 }
 ul {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(180, 149, 147);
+    color: rgb(97, 82, 81);
     background-color: rgb(67, 38, 36);
-    padding: 10px; 
 }
-p {
-    color: white;
-    background-color: rgb(222, 63, 51);
-    padding: 20px;
-}
-
 html, body {
     height: 100%;
 }
