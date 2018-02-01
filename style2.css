@@ -48,7 +48,20 @@ a:link, a:visited {
 a:hover {
     text-decoration: underline;
 }
-
+td {
+    color: white;
+}
+th {
+    color: salmon;
+    background-color: white;
+    padding: 2px;
+}
+table, th, td {
+    border: 1px solid black;
+ }
+td:hover {
+    background-color: blue;
+}
 #page {
     background-color: rgb(194, 72, 61);
 }
