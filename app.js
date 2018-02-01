@@ -12,7 +12,7 @@ var stores = [
 
 function CookieStore(store, minCustPerHour, maxCustPerHour, avgCookiesSoldPerHour){
 // (minCustPerHour, maxCustomer, avgCookiesPer, store) {//constructing store blueprint
-  this.store = store;
+  this.storeName = store;
   this.minCustPerHour = minCustPerHour,
   this.maxCustPerHour = maxCustPerHour,
   this.avgCookiesSoldPerHour = avgCookiesSoldPerHour,
@@ -39,8 +39,8 @@ CookieStore.prototype.cookiesPerHour = function() {//generating total number of 
 CookieStore.prototype.renderRow = function(parentTable) {//creating and rendering row and data for store
   var storeRow = document.createElement('tr');
   parentTable.appendChild(storeRow);
-  var storeNameTH = document.createElement('th');
-  storeNameTH.textContent = this.storeName;
+  var storeNameTH = document.createElement('td');
+  storeNameTH.textContent = this.storeName; /// ********* this was a tiny bug to squash, the this.storeName was not the same in this line as in your constructor up
   storeRow.appendChild(storeNameTH);
   this.cookiesPerHour();
 
@@ -66,7 +66,7 @@ function renderTable() {//function to create table structure
   var newTR = document.createElement('tr');
   newTHead.appendChild(newTR);
   //making th
-  var newTH = document.createElement('th');
+  var newTH = document.createElement('td');
   newTR.appendChild(newTH);
   //adding hours to th's
 
