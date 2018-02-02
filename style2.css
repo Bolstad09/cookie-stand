@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* background-color: white; */
 }
 header {
     font-family: 'Roboto', sans-serif;
@@ -39,7 +40,12 @@ nav ul {
 nav li {
     float: left;
 }
+/* #links {
 
+} */
+#store-form {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 a:link, a:visited {
     text-decoration: none;
     color: rgb(180, 149, 147);
@@ -58,6 +64,7 @@ th {
 }
 table, th, td {
     border: 1px solid black;
+    text-align: center;
  }
 td:hover {
     background-color: blue;
@@ -84,7 +91,9 @@ p {
     background-color: rgb(222, 63, 51);
     padding: 20px;
 }
-
+cookieStore {
+    
+}
 html, body {
     height: 100%;
 }

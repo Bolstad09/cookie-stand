@@ -11,19 +11,22 @@ var stores = [
 ];
 
 function CookieStore(store, minCustPerHour, maxCustPerHour, avgCookiesSoldPerHour){
+// (minCustPerHour, maxCustomer, avgCookiesPer, store) {//constructing store blueprint
   this.storeName = store;
   this.minCustPerHour = minCustPerHour,
   this.maxCustPerHour = maxCustPerHour,
   this.avgCookiesSoldPerHour = avgCookiesSoldPerHour,
   this.cookiesSoldByHour = [];
+  // this.storeCookiesPerHour = [];
   this.totalCookies = 0;
+  // this.totalDailyCookies = 0;
 }
 
-CookieStore.prototype.randomCustomerCount = function() {
+CookieStore.prototype.randomCustomerCount = function() {//generating random # of cookies per customer/hr.
   return (Math.floor((Math.random() * (this.maxCustPerHour - this.minCustPerHour) + this.minCustPerHour) * this.avgCookiesSoldPerHour));
 };
 
-CookieStore.prototype.cookiesPerHour = function() {
+CookieStore.prototype.cookiesPerHour = function() {//generating total number of cookies per hour
   this.cookiesSoldByHour = [];
   this.totalCookies = 0;
   for (var i = 0; i < hours.length; i++) {
@@ -33,11 +36,11 @@ CookieStore.prototype.cookiesPerHour = function() {
   }
 };
 
-CookieStore.prototype.renderRow = function(parentTable) {
+CookieStore.prototype.renderRow = function(parentTable) {//creating and rendering row and data for store
   var storeRow = document.createElement('tr');
   parentTable.appendChild(storeRow);
   var storeNameTH = document.createElement('td');
-  storeNameTH.textContent = this.storeName; 
+  storeNameTH.textContent = this.storeName;
   storeRow.appendChild(storeNameTH);
   this.cookiesPerHour();
 
@@ -52,28 +55,33 @@ CookieStore.prototype.renderRow = function(parentTable) {
 };
 
 
-function renderTable() {
+function renderTable() {//function to create table structure
+  //making thead
   var tableData = document.getElementById('cookieStore');
   tableData.textContent = '';
+
   var newTHead = document.createElement('thead');
   tableData.appendChild(newTHead);
+  //making tr
   var newTR = document.createElement('tr');
   newTHead.appendChild(newTR);
+  //making th
   var newTH = document.createElement('td');
   newTR.appendChild(newTH);
+  //adding hours to th's
 
-  for(var i = 0; i < hours.length; i++) {
+  for(var i = 0; i < hours.length; i++) {//retrieving/rendering hours from storeHours array.
     var newTh = document.createElement('th');
     newTh.textContent = hours[i];
     newTR.appendChild(newTh);
   }
 
-
+  //creating th element for daily totals.
   var totalTH = document.createElement('th');
   totalTH.textContent = 'Daily Total';
   newTR.appendChild(totalTH);
 
-
+  //rendering and populating each store row
   for(var j = 0; j < stores.length; j++) {
     stores[j].renderRow(tableData);
   }
@@ -88,8 +96,14 @@ var renderTableFoot = function() {
   var hourTotalTRow = document.createElement('tr');
   hourTotalTFoot.appendChild(hourTotalTRow);
 
+  var hourTotalTH = document.createElement('th');
+  hourTotalTH.textContent = 'Totals';
+  hourTotalTRow.appendChild(hourTotalTH);
+
   var hourTotalTD;
   var hourlyTotal = 0;
+  var dailyTotalFoot = 0;
+  // ^^ HOURLY TOTALS AT THE BOTTOM - STRETCH GOAL
 
   for (var i = 0; i < hours.length; i++) {
     hourTotalTD = document.createElement ('td');
@@ -98,16 +112,59 @@ var renderTableFoot = function() {
     for(var j = 0; j < stores.length; j++) {
       hourlyTotal += stores[j].cookiesSoldByHour[i];
     }
-
+    dailyTotalFoot += hourlyTotal;
+    hourTotalTD.textContent = hourlyTotal;
+    hourTotalTRow.appendChild(hourTotalTD);
+  // ^^ HOURLY TOTALS AT THE BOTTOM - STRETCH GOAL
   }
   hourTotalTD = document.createElement ('td');
+  hourTotalTD.textContent = dailyTotalFoot;
+  // ^^ HOURLY TOTALS AT THE BOTTOM - STRETCH GOAL
   hourTotalTRow.appendChild(hourTotalTD);
 };
 renderTable();
 
+function submitHandler(event){
+  console.log(event);
+  event.preventDefault();
+  if (!event.target.says.value || !event.target.who.value) {
+    return alert('Fields cannot be empty!');
+}
 
 
 
 
+
+
+
+
+
+
+// generating form and assigning inputs to constructor properties
+// var userForm = document.getElementById('store-form');
+
+// userForm.addEventListener('submit', submitHandler);
+
+// function submitHandler(event) {
+//   event.preventDefault();
+//   var storeName = parseInt(event.target.store_title.value);
+//   var minCustPerHour = parseInt(event.target.min_customers.value);
+//   var maxCustPerHour = parseInt(event.target.max_customers.value);
+//   var avgCookiesSoldPerHour = parseInt(event.target.avg_cookies_per.value);
+
+
+  // event.target.store_title.value = '';
+  // event.target.min_customers.value = '';
+  // event.target.max_customers.value = '';
+  // event.target.avg_cookies_per.value = '';
+  // event.target.store_title.value = null;
+  // event.target.min_customers.value = null;
+  // event.target.max_customers.value = null;
+  // event.target.avg_cookies_per.value = null;
+
+//   var newStore = new CookieStore(storeName, minCustPerHour, maxCustPerHour, avgCookiesSoldPerHour);
+//   stores.push(newStore);
+//   renderTable();
+// }
 
 
