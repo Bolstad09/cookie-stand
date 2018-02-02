@@ -122,7 +122,7 @@ var renderTableFoot = function() {
   // ^^ HOURLY TOTALS AT THE BOTTOM - STRETCH GOAL
   hourTotalTRow.appendChild(hourTotalTD);
 };
-renderTable();
+
 
 function submitHandler(event){
   console.log(event);
@@ -131,11 +131,19 @@ function submitHandler(event){
     return alert('Fields cannot be empty!');
 }
 
+var storeName = event.target.newstorename.value;
+var minCustomers = event.target.minCustPerHour.value;
+var maxCustomers = event.target.maxCustPerHour.value;
+var avgCookiesSold = event.target.avgCookiesSoldPerHour.value;
 
 
 
+var newStore = new StoreName(storeName);
+console.log(event.target.newstorename.value);
 
+event.target.newstorename.value = null;
 
+renderTable();
 
 
 
