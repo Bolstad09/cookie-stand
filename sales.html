@@ -9,15 +9,29 @@
     <p><img class='logo' src='salmon (1).png'id='salmon'/></p>
 </head>
 <body>  
-    <nav>
-        <ul><a href="index.html">Home</a></ul>
-        <ul>Contact Info</ul>
-        <ul><a href="sales.html">Location and Sales</a></ul>
-        </nav>
     <div id="page">
-        <h1 class="header">Salmon Cookies</h1>
-        </div>
-  
+    <h1 class="header">Salmon Cookies</h1>
+    </div>
+    <nav>
+        <ul id="links"><a href="index.html">Home</a></ul>
+        <ul id="links">Contact Info</ul>
+        <ul id="links"><a href="sales.html">Location and Sales</a></ul>
+    </nav>
+    <form id="store-form">
+        <fieldset>
+            <legend>Add Store Location</legend>
+        <label for="storename">Name of Location:</label>
+        <input name="storename" type="text" />
+        <label for="mincust">Minimun Customers Per Hour</label>
+        <input name="mincust" type="text" />
+        <label for="mincust">Maximum Customers Per Hour</label>
+        <input name="maxcust" type="text" />
+        <label for="avgcookies">Average Cookies Sold</label>
+        <input name="avgcookies" type="text" />
+        <button id="comment-buton" type="submit">Create a New Store</button>
+        </fieldset>
+    </form>
+
         <h2>Daily Salmon Cookie Sales By Hour and Location</h2>
     <table id="cookieStore"></table>
 
