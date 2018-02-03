@@ -1,7 +1,7 @@
 'use strict';
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
+// var allLocations: [];
 var stores = [
   new CookieStore('First and Pike', 23, 65, 6.3),
   new CookieStore('Seatac Airport', 3, 24, 1.2),
@@ -9,6 +9,8 @@ var stores = [
   new CookieStore('Capitol Hill', 20, 38, 2.3),
   new CookieStore('Alki', 2, 16, 4.6)
 ];
+// console.log(allLocations);
+var cookieTable = document.getElementById('cookieStore');
 
 function CookieStore(store, minCustPerHour, maxCustPerHour, avgCookiesSoldPerHour){
 // (minCustPerHour, maxCustomer, avgCookiesPer, store) {//constructing store blueprint
@@ -35,6 +37,7 @@ CookieStore.prototype.cookiesPerHour = function() {//generating total number of 
     this.cookiesSoldByHour.push(numCookiesPerHour);
   }
 };
+// allLocations.push(this);
 
 CookieStore.prototype.renderRow = function(parentTable) {//creating and rendering row and data for store
   var storeRow = document.createElement('tr');
@@ -122,57 +125,105 @@ var renderTableFoot = function() {
   // ^^ HOURLY TOTALS AT THE BOTTOM - STRETCH GOAL
   hourTotalTRow.appendChild(hourTotalTD);
 };
+// // --------------------Event--------------------------------
+var formEle = document.getElementById('store-form');
 
-
-function submitHandler(event){
-  console.log(event);
+function handleAddLocation(event){
+  console.log(event.target);
   event.preventDefault();
-  if (!event.target.says.value || !event.target.who.value) {
-    return alert('Fields cannot be empty!');
+
+  var storeName = event.target.storename.value;
+  var minCustPerHour = parseInt(event.target.mincust.value);
+  var maxCustPerHour = parseInt(event.target.maxcust.value);
+  var avgCookiesSoldPerHour = parseFloat(event.target.avgcookies.value);
+  //console.log(event.target.mincust);
+  var newRow = storeName;
+  var newStore = new CookieStore(storeName, minCustPerHour, maxCustPerHour, avgCookiesSoldPerHour, newRow);
+  newStore.cookiesPerHour();
+  stores.push(newStore);
+
+
+  // addNewStore.calccookiesSoldByHour();
+  console.log(newStore);
+
+
+  event.target.storename.value = null;
+  event.target.mincust.value = null;
+  event.target.maxcust.value = null;
+  event.target.avgcookies.value = null;
+  console.log(newStore);
 }
+// console.log(event.target.storename.value);
 
-var storeName = event.target.newstorename.value;
-var minCustomers = event.target.minCustPerHour.value;
-var maxCustomers = event.target.maxCustPerHour.value;
-var avgCookiesSold = event.target.avgCookiesSoldPerHour.value;
-
-
-
-var newStore = new StoreName(storeName);
-console.log(event.target.newstorename.value);
-
-event.target.newstorename.value = null;
+formEle.addEventListener('submit', (handleAddLocation));
 
 renderTable();
 
 
 
 
-// generating form and assigning inputs to constructor properties
-// var userForm = document.getElementById('store-form');
-
-// userForm.addEventListener('submit', submitHandler);
-
-// function submitHandler(event) {
-//   event.preventDefault();
-//   var storeName = parseInt(event.target.store_title.value);
-//   var minCustPerHour = parseInt(event.target.min_customers.value);
-//   var maxCustPerHour = parseInt(event.target.max_customers.value);
-//   var avgCookiesSoldPerHour = parseInt(event.target.avg_cookies_per.value);
 
 
-  // event.target.store_title.value = '';
-  // event.target.min_customers.value = '';
-  // event.target.max_customers.value = '';
-  // event.target.avg_cookies_per.value = '';
-  // event.target.store_title.value = null;
-  // event.target.min_customers.value = null;
-  // event.target.max_customers.value = null;
-  // event.target.avg_cookies_per.value = null;
 
-//   var newStore = new CookieStore(storeName, minCustPerHour, maxCustPerHour, avgCookiesSoldPerHour);
-//   stores.push(newStore);
-//   renderTable();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // if (!event.target.newLocation.value || !event.target.minimum.value || !event.target.maximum.value || !event.target.average.value){
+  //   return alert('Must fill in all values');
+  // }
+
+
+
+
+// console.log(cookieTable);  // console.log(cookieTable.rows);
+// console.log(cookieTable.rows.length);
+
+//   cookieTable.deleteRow(cookieTable.rows.length - 1);
+//   newLocation.calcTotalCookies();
+//   newLocation.render();
+//   hourlyTotals = Array(hours.length).fill(0);
+//   totalTotal = 0;
+//   makeTotalRow();
 // }
 
 
+// makeHeaderRow(cookieTable);
+// for (var i = 0; i < allLocations.length; i++){
+//   allLocations[i].calculateTotalCookies();
+//   allLocations[i].render(); }
+// makeTotalRow();
