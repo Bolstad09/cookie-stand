@@ -1,16 +1,27 @@
 * {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
     box-sizing: border-box;
     /* background-color: salmon; */
 }
 header {
     font-family: 'Roboto', sans-serif;
     color: rgb(85, 6, 0);
+    /* background-color: rgba(250, 128, 114, 0.932);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto; */
 }
 .pic {
-    background-color: salmon;
+    background-color: rgba(250, 128, 114, 0.932);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
 }
 
 body {
@@ -49,9 +60,32 @@ a:link, a:visited {
 a:hover {
     text-decoration: underline;
 }
-
+#locationTable {
+    color:white;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: rgb(194, 72, 61);
+}
+#locationTh {
+    border: 1px solid black;
+}
+#locationName {
+    border: 1px solid black;
+    /* width: 100%;
+    height: 50%; */
+    border-spacing: 15px 20px;
+}
+#locationAddress {
+    border: 1px solid black;
+    /* width: 100%;
+    height: 50%; */
+    border-spacing: 55px 20px;
+}
 #page {
     background-color: rgb(194, 72, 61);
+}
+h1 {
+    background-color:  rgb(194, 72, 61);
 }
 h2 {
     font-family: Arial, Helvetica, sans-serif;
@@ -70,7 +104,7 @@ ul {
 p {
     color: white;
     background-color: rgb(222, 63, 51);
-    padding: 20px;
+    padding: 40px;
 }
 
 html, body {
